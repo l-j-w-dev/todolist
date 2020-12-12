@@ -1,5 +1,5 @@
 window.onload = function(){
-    getTodoList()
+    getTodoList();
 }
 
 function getTodoList(){
@@ -39,6 +39,7 @@ function addToLocal(){
     localStorage.setItem(time, document.querySelector('#inputValue').value);
     document.querySelector('#inputValue').value = '';
 }
+
 function editTodo(ele){
     if(ele.parentElement.querySelector('.content').style.display != 'none'){
         ele.parentElement.querySelector('.content').style.display = 'none';    
@@ -77,3 +78,4 @@ document.getElementById('inputValue').addEventListener('keypress', function(e){
         addToLocal();
     }
 })
+
