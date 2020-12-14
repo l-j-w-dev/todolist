@@ -49,6 +49,7 @@ function editTodo(ele){
         inp.value = ele.parentElement.querySelector('.content').innerHTML;
         ele.parentElement.appendChild(inp)
         inp.focus();
+        console.log('dddd')
     }else{
         var content = ele.parentElement.querySelector('.editContent');
         if(content.value.length == 0){
@@ -59,6 +60,16 @@ function editTodo(ele){
         localStorage.setItem(ele.parentElement.getAttribute('class'), content.value);
         content.remove();
     }
+    ele.parentElement.querySelector('.editContent').addEventListener('keypress', function(e){
+        if(e.keyCode == 13){
+            var content = this;
+            this.parentElement.querySelector('.content').style.display = 'block';
+            this.parentElement.querySelector('.content').innerHTML = content.value;
+            localStorage.setItem(this.parentElement.getAttribute('class'), content.value);
+            content.remove();
+        }
+    })
+
 }
 function checkTodo(ele){
     if(ele.parentElement.getAttribute('class').indexOf(' f') == -1){
